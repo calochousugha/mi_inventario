@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="8dp"
+    android:layout_marginTop="8dp"
+    android:layout_marginEnd="8dp"
+    android:layout_marginBottom="8dp"
+    android:background="@drawable/rounded_edittext_background"
+    app:layout_constraintLeft_toRightOf="parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp">
+
+        <ImageView
+            android:id="@+id/imgMiniCard"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:elevation="30dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            app:srcCompat="@drawable/caja" />
+
+        <TextView
+            android:id="@+id/tvNamePhoto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imgMiniCard"
+            android:layout_alignStart="@+id/imgMiniCard"
+            android:layout_alignEnd="@+id/imgMiniCard"
+            android:layout_marginTop="8dp"
+            android:textSize="18sp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:gravity="center"
+            android:text="@string/name_photo" />
+
+        <TextView
+            android:id="@+id/tvDetailsPhoto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvNamePhoto"
+            android:layout_marginTop="4dp"
+            android:layout_alignStart="@+id/tvNamePhoto"
+            android:layout_alignEnd="@+id/tvNamePhoto"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textSize="15sp"
+            android:gravity="center"
+            android:text="@string/details_photo" />
+
+        <TextView
+            android:id="@+id/tvDatePhoto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvDetailsPhoto"
+            android:layout_alignStart="@+id/tvDetailsPhoto"
+            android:layout_alignEnd="@+id/tvDetailsPhoto"
+            android:gravity="center"
+            android:layout_marginTop="4dp"
+            android:textSize="15sp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="@string/date_photo" />
+
+        <TextView
+            android:id="@+id/tvUriPhoto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvDatePhoto"
+            android:layout_alignStart="@+id/tvDatePhoto"
+            android:layout_alignEnd="@+id/tvDatePhoto"
+            android:layout_marginTop="4dp"
+            android:textSize="15sp"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:maxLines="1"
+            android:text="@string/uri_photo" />
+    </RelativeLayout>
+
+
+</androidx.cardview.widget.CardView>

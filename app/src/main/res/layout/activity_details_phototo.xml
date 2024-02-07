@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#994C4C4C"
+    tools:context=".Activity.DetailsPhototoActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:title="@string/app_name"
+            android:background="@color/design_default_color_primary_dark"
+            android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+            app:popupTheme="@style/Theme.AppCompat.Light"
+            app:titleTextColor="@color/white"
+            app:menu="@menu/menu_back"/>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/shapeableImageView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/picture"
+        android:layout_marginTop="60dp"
+        android:elevation="2dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/ic_launcher_foreground" />
+
+    <TextView
+        android:id="@+id/tvNombreFotDetalle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="95dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="30dp"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:elevation="20dp"
+        android:text="@string/name_photo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/tvDetallesFotoDetalle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginTop="5dp"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        android:elevation="20dp"
+        android:text="@string/details_photo"
+        app:layout_constraintEnd_toEndOf="@+id/tvNombreFotDetalle"
+        app:layout_constraintStart_toStartOf="@+id/tvNombreFotDetalle"
+        app:layout_constraintTop_toBottomOf="@+id/tvNombreFotDetalle" />
+
+    <TextView
+        android:id="@+id/tvFechaFoto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="30dp"
+        android:textColor="@color/black"
+        android:layout_marginTop="5dp"
+        android:elevation="20dp"
+        android:textSize="15sp"
+        android:text="@string/date_photo"
+        app:layout_constraintEnd_toEndOf="@+id/tvDetallesFotoDetalle"
+        app:layout_constraintStart_toStartOf="@+id/tvDetallesFotoDetalle"
+        app:layout_constraintTop_toBottomOf="@+id/tvDetallesFotoDetalle" />
+
+    <TextView
+        android:id="@+id/tvRutaFoto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="30dp"
+        android:textColor="@color/black"
+        android:layout_marginTop="5dp"
+        android:elevation="20dp"
+        android:textSize="15sp"
+        android:text="@string/uri_photo"
+        app:layout_constraintEnd_toEndOf="@+id/tvFechaFoto"
+        app:layout_constraintStart_toStartOf="@+id/tvFechaFoto"
+        app:layout_constraintTop_toBottomOf="@+id/tvFechaFoto" />
+
+    <ImageButton
+        android:id="@+id/imgbEditPhoto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="30dp"
+        android:elevation="5dp"
+        android:background="#00FFFFFF"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tvNombreFotDetalle"
+        app:srcCompat="@android:drawable/ic_menu_edit" />
+
+    <ImageButton
+        android:id="@+id/imgbDetailsPhoto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="30dp"
+        android:layout_marginTop="10dp"
+        android:background="#00FFFFFF"
+        android:elevation="5dp"
+        app:layout_constraintTop_toBottomOf="@+id/imgbEditPhoto"
+        app:srcCompat="@android:drawable/ic_menu_info_details" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
