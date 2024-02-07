@@ -4,18 +4,7 @@
     <string name="name_photo">Nombre de la foto</string>
     <string name="details_photo">Detalles de la foto</string>
     <string name="date_photo">Fecha de la foto</string>
-
-
-    <string name="name_ratingo">Rating</string>
-    <string name="name_category">Categoria</string>
-    <string name="name_marca">Marca</string>
-    <string name="name_stock">Stock</string>
     <string name="text_guardar">Guardar</string>
-    <string name="text_marca">Marca</string>
-    <string name="text_number_stock">Stock</string>
-    <string name="text_number_rating">Rating</string>
-    <string name="text_descuento">Descuento</string>
-    <string name="number_price">Precio</string>
-    <string name="back">Atras</string>
+    <string name="back">Atrás</string>
     <string name="uri_photo">Ruta de la imagen</string>
 </resources>

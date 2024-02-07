@@ -1,6 +1,7 @@
 package com.carlosusuga.miinventario.Activity
 
 import android.Manifest
+import android.app.ActivityOptions
 import android.content.ContentUris
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -13,6 +14,7 @@ import android.provider.MediaStore
 import android.provider.Settings
 import android.util.Log
 import android.view.View
+import android.view.Window
 import android.widget.GridView
 import android.widget.ImageView
 import android.widget.Toast
@@ -32,6 +34,7 @@ import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
+import com.google.android.material.transition.platform.MaterialContainerTransformSharedElementCallback
 import kotlinx.coroutines.runBlocking
 
 class MainActivity : AppCompatActivity(), DataImgAdapter.OnItemClickListener {
@@ -41,6 +44,7 @@ class MainActivity : AppCompatActivity(), DataImgAdapter.OnItemClickListener {
     var toolbar: MaterialToolbar? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        animatedFuntion()
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
@@ -53,7 +57,12 @@ class MainActivity : AppCompatActivity(), DataImgAdapter.OnItemClickListener {
         val btnAddPhoto = findViewById<FloatingActionButton>(R.id.button_add_photo)
         btnAddPhoto.setOnClickListener {
             val intent = Intent(this@MainActivity, AddPhotoActivity::class.java)
-            startActivityForResult(intent, ADD_PHOTO_REQUEST)
+            val options = ActivityOptions.makeSceneTransitionAnimation(
+                this,
+                btnAddPhoto,
+                "shared_element_container" // The transition name to be matched in Activity B.
+            )
+            startActivityForResult(intent, ADD_PHOTO_REQUEST, options.toBundle())
             onPause()
         }
 
@@ -83,6 +92,19 @@ class MainActivity : AppCompatActivity(), DataImgAdapter.OnItemClickListener {
                 showDeleteConfirmationDialog(viewHolder.adapterPosition)
             }
         }).attachToRecyclerView(recyclerView)
+    }
+
+    private fun animatedFuntion(){
+
+        window.requestFeature(Window.FEATURE_ACTIVITY_TRANSITIONS)
+
+        // Attach a callback used to capture the shared elements from this Activity to be used
+        // by the container transform transition
+        setExitSharedElementCallback(MaterialContainerTransformSharedElementCallback())
+
+        // Keep system bars (status bar, navigation bar) persistent throughout the transition.
+        window.sharedElementsUseOverlay = false
+
     }
 
     // Implementar la función onItemClick para manejar la navegación
@@ -167,7 +189,7 @@ class MainActivity : AppCompatActivity(), DataImgAdapter.OnItemClickListener {
             Toast.makeText(this, "Imagen Actualizada", Toast.LENGTH_LONG).show()
 
         } else {
-            Toast.makeText(this, " No  se pudo guardar los datos", Toast.LENGTH_LONG).show()
+            Toast.makeText(this, "No se pudo guardar los datos", Toast.LENGTH_LONG).show()
         }
     }
 
